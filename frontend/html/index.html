@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio</title>
+
+    <link rel="stylesheet" href="../css/styles.css" />
+
+    <script src="../js/lazyLoading.js" defer></script>
+    <script src="../js/form.js" defer></script>
+    <script src="../js/projects-data.js" defer></script>
+    <script src="../js/blog-data.js" defer></script>
+    <script src="../js/github_rest_API.js" defer></script>
+    <script src="../js/visitor_info_API.js" defer></script>
+  </head>
+
+  <body>
+    <main>
+      <!-- SECTIE 1: HOMEPAGE -->
+      <section class="screen-container homepage" id="homepage">
+        <div class="homepage-header">
+          <a href="#homepage" class="logo-name">
+            Guido<span class="accent-text">vandermaas</span>
+          </a>
+          <img
+            src="../img/Homepage1.jpg"
+            data-gif="../img/Homepage1.gif"
+            id="homepage-gif"
+            alt="Homepage gif depicting JS"
+          />
+          <a href="#contact-form" class="contact-btn">Contact Me</a>
+        </div>
+
+        <div class="homepage-outerbox">
+          <div class="homepage-box">
+            <section class="github-section">
+              <div class="github-intro">
+                <h2>Welcome</h2>
+                <p>
+                  These are my personal and school accounts. Visit a repository
+                  to explore one of my recent projects.
+                </p>
+              </div>
+              <div id="github-container" class="github-grid">
+                <div id="account-1-column" class="account-column">
+                  <div class="account-header">
+                    <h3>Main account</h3>
+                  </div>
+                  <p class="account-status" role="status">
+                    GitHub-account loading...
+                  </p>
+                </div>
+                <div id="account-2-column" class="account-column">
+                  <div class="account-header">
+                    <h3>School account</h3>
+                  </div>
+                  <p class="account-status" role="status">
+                    GitHub-account loading...
+                  </p>
+                </div>
+                <!-- github-rest_API.js will FILL the rest this up ;) -->
+              </div>
+            </section>
+
+            <div class="homepage-sidebar">
+              <nav class="nav-section">
+                <h2>Explore my portfolio</h2>
+                <ul>
+                  <li><a href="#about-me" class="orange-link">About me</a></li>
+                  <li><a href="#projects" class="orange-link">Projects</a></li>
+                  <li><a href="#blog" class="orange-link">Blog</a></li>
+                </ul>
+              </nav>
+
+              <div id="visitorInfo-widget-container"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTIE 2: ABOUT ME -->
+      <section class="screen-container" id="about-me">
+        <div class="content-box">
+          <h2 class="intro-text">Hello, I'm Guido van der Maas</h2>
+          <br />
+          <p>
+            I'm a student at The Hague University of Applied Sciences, studying
+            Software Engineering. Currently I'm in my second year.
+          </p>
+          <p>
+            Fascinated by technology, I like how it is able to solve many
+            problems and make life more interesting and enjoyable.
+          </p>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <span class="stat-number">20</span>
+            <span class="stat-label">years old</span>
+          </div>
+
+          <div class="stat-card">
+            <span class="stat-number">1</span>
+            <span class="stat-label">year of experience</span>
+          </div>
+
+          <div class="stat-card">
+            <span class="stat-number">2</span>
+            <span class="stat-label">projects worked on</span>
+          </div>
+        </div>
+
+        <div class="cta-wrapper">
+          <p>Want to see more of my personal life? Click this button!</p>
+          <a href="../html/personal-page.html" class="cta-button"
+            >More About Me</a
+          >
+        </div>
+      </section>
+
+      <!-- SECTIE 3: PROJECTS -->
+      <section class="screen-container" id="projects">
+        <div class="filter-wrapper">
+          <label for="project-sort-select" class="sort-label"
+            >Sort projects:</label
+          >
+          <select id="project-sort-select" class="sort-dropdown">
+            <option value="year-desc">Year (Newest first)</option>
+            <option value="year-asc">Year (Oldest first)</option>
+            <option value="name-asc">Name (A-Z)</option>
+            <option value="name-desc">Name (Z-A)</option>
+            <option value="random">Random</option>
+          </select>
+
+          <button
+            id="randomize-btn"
+            class="randomize-btn hidden"
+            type="button"
+            title="Randomize projects"
+          >
+            Randomize
+          </button>
+        </div>
+
+        <div id="years-wrapper">
+          <!-- Content will be filled by projects-data.js -->
+        </div>
+      </section>
+
+      <!-- SECTIE 4: BLOG -->
+      <section class="screen-container" id="blog">
+        <div class="filter-wrapper">
+          <label for="blog-sort-select" class="sort-label"
+            >Sort blog posts:</label
+          >
+          <select id="blog-sort-select" class="sort-dropdown">
+            <option value="date-desc">Newest</option>
+            <option value="date-asc">Oldest</option>
+          </select>
+        </div>
+        <div class="blog-timeline" id="blog-timeline">
+          <!-- Content will be filled by blog-data.js -->
+        </div>
+      </section>
+
+      <!-- SECTIE 5: Contact -->
+      <section class="screen-container" id="contact">
+        <form
+          class="contact-form"
+          id="contact-form"
+          aria-labelledby="contact-form-heading"
+          action="https://formspree.io/f/moevpnlg"
+          method="post"
+        >
+          <h3 id="contact-form-heading">
+            Contact <span class="accent-text">Me</span>
+          </h3>
+
+          <label for="name">Name: </label>
+          <input
+            id="name"
+            name="name"
+            required
+            placeholder="The set of characters you use to identify yourself..."
+          />
+
+          <label for="e-mail">E-mail: </label>
+          <input
+            id="e-mail"
+            name="e-mail"
+            type="email"
+            required
+            placeholder="Don't worry, i ain't gonna spam you"
+          />
+
+          <label for="message"> Message: </label>
+          <textarea
+            id="message"
+            name="message"
+            required
+            placeholder="But, if you decide to spam me, sleep with one eye open tonight.."
+          ></textarea>
+
+          <div class="post-wrapper">
+            <p
+              id="messageSendFeedback"
+              role="status"
+              aria-live="polite"
+              aria-atomic="true"
+            >
+              Send your message, ask me anything!
+            </p>
+            <button type="submit" class="submit-button">Send</button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <footer class="footer">2026</footer>
+  </body>
+</html>
